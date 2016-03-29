@@ -1,0 +1,29 @@
+/* https://www.youtube.com/watch?v=5mgsQ2csCIU
+   https://www.youtube.com/watch?v=_bNhGbUSYy8   //variables
+   https://www.youtube.com/watch?v=Vm4UjqZmEiE   //mixins
+   https://www.youtube.com/watch?v=x0oEv-0pJIg   //nesting rules
+   https://www.youtube.com/watch?v=2O0YD7m2kgw   //nested conditionals (screen size)
+*/
+
+
+//variables
+@color1: black;                     //named color value
+@color2: #00f;                      //hex code color value
+@fontsize: 24px;                    //numeric value
+@border: 2px solid @color1;         //multi-string variable
+@padding: 15px;                     //one-value variable
+
+//mixins
+.radius(@radius){
+   -webkit-border-radius: @radius;  //Chrome, Safari
+   -moz-border-radius: @radius;     //Firefox
+   -o-border-radius: @radius;       //Opera
+   -ms-border-radius: @radius;      //IE
+   border-radius: @radius;
+}
+
+
+
+h1 {
+   color: @color2;
+}
