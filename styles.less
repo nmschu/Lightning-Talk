@@ -9,22 +9,21 @@
 
 
 //variables
-@heading: #00f;                     //hex code color value
+@heading: #00f;                     //hex code color value... blue
 @panel: #4dff4d;
 @headerfontsize: 42px;              //numeric value
-@border: 2px solid @heading;        //multi-string variable
-@padding: 15px;                     //one-value variable
 @notification: #ff1a1a;             //red notification color
 @bordercolor: #80aaff;              //light blue border color
+@border: 5px solid @bordercolor;    //multi-string variable
 @bannercolor: #8533ff;              //light purple. display on computer
 @bannercolormobile: #00cc44;        //green. display on mobile
 
 //mixins
 .panel{
-   border: 3px solid;
+   border: @border;
    background-color: @panel;
    margin:10px;
-   border-color: @bordercolor;
+   //border-color: @border;
 }
 
 .large-panel{
@@ -46,6 +45,7 @@
 #test-banner{
    font-size: 24px;
    background: @bannercolor;
+   padding: 6px;
 
    //this displays when screen size is <= 768px
    @media screen {
