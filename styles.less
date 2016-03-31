@@ -1,4 +1,5 @@
-/* https://www.youtube.com/watch?v=5mgsQ2csCIU
+/*
+   https://www.youtube.com/watch?v=5mgsQ2csCIU
    https://www.youtube.com/watch?v=_bNhGbUSYy8   //variables
    https://www.youtube.com/watch?v=Vm4UjqZmEiE   //mixins
    https://www.youtube.com/watch?v=x0oEv-0pJIg   //nesting rules
@@ -8,23 +9,63 @@
 
 
 //variables
-@color1: black;                     //named color value
-@color2: #00f;                      //hex code color value
-@fontsize: 24px;                    //numeric value
-@border: 2px solid @color1;         //multi-string variable
+@heading: #00f;                     //hex code color value
+@panel: #4dff4d;
+@headerfontsize: 42px;              //numeric value
+@border: 2px solid @heading;        //multi-string variable
 @padding: 15px;                     //one-value variable
+@notification: #ff1a1a;             //red notification color
+@bordercolor: #80aaff;              //light blue border color
+@bannercolor: #8533ff;              //light purple. display on computer
+@bannercolormobile: #00cc44;        //green. display on mobile
 
 //mixins
-.radius(@radius){
-   -webkit-border-radius: @radius;  //Chrome, Safari
-   -moz-border-radius: @radius;     //Firefox
-   -o-border-radius: @radius;       //Opera
-   -ms-border-radius: @radius;      //IE
-   border-radius: @radius;
+.panel{
+   border: 3px solid;
+   background-color: @panel;
+   margin:10px;
+   border-color: @bordercolor;
+}
+
+.large-panel{
+   .panel;   //inherits from .panel
+   padding: 20px;
+   border: 4px solid; //is able to override... didn't change with border-color
+}
+
+.small-panel{
+   .panel;
+   padding: 5px;
+   text-align: center;
+   background-color: @notification;
+   font-weight: bold;
+}
+
+
+//nested conditionals
+#test-banner{
+   font-size: 24px;
+   background: @bannercolor;
+
+   //this displays when screen size is <= 768px
+   @media screen {
+      @media (max-width: 768px){
+         font-size: 32px;
+         background: @bannercolormobile;
+      }
+   }
 }
 
 
 
+
+
+
+
+
+
+
 h1 {
-   color: @color2;
+   color: @heading;
+   font-size: @headerfontsize;
 }
