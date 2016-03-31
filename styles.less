@@ -18,6 +18,10 @@
 @bannercolor: #8533ff;              //light purple. display on computer
 @bannercolormobile: #00cc44;        //green. display on mobile
 
+@buttonBackground: #ff6600;
+@buttonColor: #000000;
+@buttonPadding: 5px;
+
 //mixins
 .panel{
    border: @border;
@@ -57,9 +61,34 @@
 }
 
 
+//simple math operations
+.button{
+   background: @buttonBackground;
+   padding: @buttonPadding;
+   color: @buttonColor;
+   display: inline-block;
+}
 
+.large-button{
+   .button;
+   padding: @buttonPadding + 20;
+}
 
+.light-button{
+   .button;
+   background: @buttonBackground * 1.6;  //numbers >1 lighten, <1 darken
+}
 
+.dark-button{
+   .button;
+   background: @buttonBackground * 0.7;
+}
+
+.mixed-button{
+   .button;
+   padding: @buttonPadding + 20;
+   background: @buttonBackground * 1.6;
+}
 
 
 
